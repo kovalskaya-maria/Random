@@ -1,0 +1,15 @@
+a.out: experiment.o generator.o num_threads.o main.o
+	g++ -fopenmp experiment.o generator.o num_threads.o main.o
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+generator.o: generator.cpp
+	g++ -fopenmp -c generator.cpp
+
+experiment.o: experiment.cpp
+	g++ --std=c++17 -c experiment.cpp
+
+num_threads.o: num_threads.cpp
+	g++ -fopenmp -c num_threads.cpp
+
